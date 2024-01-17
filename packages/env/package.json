@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@repo/env",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "TIMING=1 eslint .",
+    "lint:fix": "eslint --fix .",
+    "types": "tsc",
+    "build": ""
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "20.8.4"
+  },
+  "dependencies": {
+    "@t3-oss/env-nextjs": "0.7.0",
+    "zod": "3.22.4"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "format": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs,json,md}"],
+      "outputs": ["./**/*.{ts,tsx,js,cjs,mjs,json,md}"]
+    },
+    "format:check": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs,json,md}"],
+      "outputs": []
+    },
+    "lint": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
+      "outputs": []
+    },
+    "lint:fix": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
+      "outputs": ["./**/*.{ts,tsx,js,cjs,mjs}"]
+    },
+    "topo": { "dependsOn": ["^topo"] },
+    "types": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}", "tsconfig.json"],
+      "outputs": ["./**/*.tsbuildinfo"],
+      "dependsOn": ["topo"]
+    },
+    "build": {},
+    "test": {},
+    "test:watch": {},
+    "dev": {},
+    "start": {}
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@repo/db",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "bwenv -- tsx ./src/migrate.ts",
+    "lint": "TIMING=1 eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "types": "tsc"
+  },
+  "dependencies": {
+    "@repo/env": "workspace:^",
+    "drizzle-orm": "0.29.1",
+    "postgres": "3.4.3",
+    "uuid": "9.0.1",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "20.8.4",
+    "@types/uuid": "9.0.5",
+    "drizzle-kit": "0.20.6",
+    "tsx": "3.14.0"
+  }
+}
