@@ -1,0 +1,54 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "inputs": [
+        "./src/**/*.{ts,tsx,js,cjs,mjs,json}",
+        "./*.{ts,tsx,js,cjs,mjs,json}"
+      ],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dependsOn": ["^build"]
+    },
+    "dev": {
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "start": {
+      "persistent": true,
+      "dependsOn": ["build"]
+    },
+    "format": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs,json,md}"],
+      "outputs": ["./**/*.{ts,tsx,js,cjs,mjs,json,md}"],
+      "dependsOn": ["@llc/tailwind#build"]
+    },
+    "format:check": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs,json,md}"],
+      "outputs": [],
+      "dependsOn": ["@llc/tailwind#build"]
+    },
+    "lint": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
+      "outputs": []
+    },
+    "lint:fix": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
+      "outputs": ["./**/*.{ts,tsx,js,cjs,mjs}"]
+    },
+    "topo": { "dependsOn": ["^topo"] },
+    "types": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}", "tsconfig.json"],
+      "outputs": ["./**/*.tsbuildinfo"],
+      "dependsOn": ["topo"]
+    },
+    "test": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
+      "outputs": []
+    },
+    "test:watch": {
+      "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
+      "outputs": []
+    }
+  }
+}

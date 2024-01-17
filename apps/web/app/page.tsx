@@ -1,3 +1,3 @@
 export default function Page(): JSX.Element {
-  return <main></main>;
+  return <main className="text-xl bg-red-500">Hello</main>;
 }

@@ -1,18 +1,21 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "@repo/tsconfig/nextjs.json",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "moduleResolution": "nodenext",
+    "noPropertyAccessFromIndexSignature": false,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "module": "nodenext",
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
-    "next.config.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../../global.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".next/types/**/*.ts"]
 }
