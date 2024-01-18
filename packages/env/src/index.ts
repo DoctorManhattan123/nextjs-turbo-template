@@ -16,12 +16,10 @@ export const env = createEnv({
     ]),
   },
   server: {
-    databaseUrl: z.string().min(1).includes("pgbouncer=true"),
-    databaseDirectUrl: z.string().min(1),
+    databaseUrl: z.string().min(1),
   },
   runtimeEnv: {
     NEXT_PUBLIC_environment: environment,
     databaseUrl: process.env.DATABASE_URL,
-    databaseDirectUrl: process.env.DATABASE_DIRECT_URL,
   },
 });

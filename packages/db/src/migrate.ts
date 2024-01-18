@@ -4,7 +4,8 @@ import postgres from "postgres";
 
 import { env } from "@repo/env";
 
-const databaseUrl = env.databaseDirectUrl;
+const databaseUrl = env.databaseUrl;
+console.info({ databaseUrl });
 
 const databaseConnection = drizzle(
   postgres(databaseUrl, { ssl: "require", max: 1 }),

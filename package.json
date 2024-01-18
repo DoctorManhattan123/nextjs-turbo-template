@@ -2,14 +2,15 @@
   "name": "nextjs-turbo-template",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev --filter web",
+    "build": "dotenv -e .env -- turbo build",
+    "dev": "dotenv -e .env -- turbo dev --filter web",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
+    "dotenv-cli": "^7.3.0",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },

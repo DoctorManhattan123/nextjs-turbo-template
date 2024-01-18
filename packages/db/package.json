@@ -5,7 +5,7 @@
   "types": "./src/index.ts",
   "scripts": {
     "db:generate": "drizzle-kit generate:pg",
-    "db:migrate": "bwenv -- tsx ./src/migrate.ts",
+    "db:migrate": "dotenv -e ../../.env -- tsx ./src/migrate.ts",
     "lint": "TIMING=1 eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
@@ -23,6 +23,7 @@
     "@repo/tsconfig": "workspace:*",
     "@types/node": "20.8.4",
     "@types/uuid": "9.0.5",
+    "dotenv-cli": "^7.3.0",
     "drizzle-kit": "0.20.6",
     "tsx": "3.14.0"
   }
