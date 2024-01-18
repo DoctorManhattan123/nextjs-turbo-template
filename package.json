@@ -5,7 +5,9 @@
     "build": "dotenv -e .env -- turbo build",
     "dev": "dotenv -e .env -- turbo dev --filter web",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "types": "turbo run types",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "find . -type d \\( -name node_modules -o -name .turbo -o -name dist \\) -not -path \"./.vercel/*\" -prune -exec rm -rf {} \\;"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

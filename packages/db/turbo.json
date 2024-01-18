@@ -18,11 +18,9 @@
       "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}"],
       "outputs": ["./**/*.{ts,tsx,js,cjs,mjs}"]
     },
-    "topo": { "dependsOn": ["^topo"] },
     "types": {
       "inputs": ["./**/*.{ts,tsx,js,cjs,mjs}", "tsconfig.json"],
-      "outputs": ["./**/*.tsbuildinfo"],
-      "dependsOn": ["topo"]
+      "outputs": ["./**/*.tsbuildinfo"]
     },
     "build": {},
     "test": {},
